@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { VITE_BACKEND_URL } from "../App";
+import TextInput from "../components/TextInput";
+import Textarea from "../components/TextArea";
+import Button from "../components/Button";
 
 const EditPage = () => {
     let { id } = useParams();
@@ -63,35 +66,44 @@ const EditPage = () => {
                 <>
                     <form onSubmit={updateProduct}>
                         <div className="space-y-2">
-                            <div>
-                                <label className="font-semibold">Name</label>
-                                <input type="text" value={product.name} onChange={(e) => setProduct({ ...product, name: e.target.value })} className="w-full block border p-3 text-gray-600 rounded-lg focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter Name" />
-                            </div>
-                            <div>
-                                <label className="font-semibold">Brand</label>
-                                <input type="text" value={product.brand} onChange={(e) => setProduct({ ...product, brand: e.target.value })} className="w-full block border p-3 text-gray-600 rounded-lg focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter Brand Name" />
-                            </div>
-                            <div>
-                                <label className="font-semibold">Category</label>
-                                <input type="text" value={product.category} onChange={(e) => setProduct({ ...product, category: e.target.value })} className="w-full block border p-3 text-gray-600 rounded-lg focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter Category" />
-                            </div>
-                            <div>
-                                <label className="font-semibold">Price</label>
-                                <input type="number" value={product.price} onChange={(e) => setProduct({ ...product, price: e.target.value })} className="w-full block border p-3 text-gray-600 rounded-lg focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter Price" />
-                            </div>
-                            <div>
-                                <label className="font-semibold">Description</label>
-                                <textarea value={product.description} rows="4" onChange={(e) => setProduct({ ...product, description: e.target.value })} className="w-full block border p-3 text-gray-600 rounded-lg focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Write your description"></textarea>
-                            </div>
-                            <div>
-                                <label className="font-semibold">Image URL</label>
-                                <input type="text" value={product.imageFileName} onChange={(e) => setProduct({ ...product, imageFileName: e.target.value })} className="w-full block border p-3 text-gray-600 rounded-lg focus:outline-none focus:shadow-outline focus:border-blue-200 placeholder-gray-400" placeholder="Enter Image URL" />
-                            </div>
-                            <div>
-                                {!isLoading && (
-                                    <button className="block w-full mt-6 bg-blue-700 text-white rounded-lg px-4 py-2 font-bold hover:bg-blue-600 hover:cursor-pointer">Update</button>
-                                )}
-                            </div>
+                            <TextInput
+                                label="Name"
+                                value={product.name}
+                                onChange={(e) => setProduct({ ...product, name: e.target.value })}
+                                placeholder="Enter Name"
+                            />
+                            <TextInput
+                                label="Brand"
+                                value={product.brand}
+                                onChange={(e) => setProduct({ ...product, brand: e.target.value })}
+                                placeholder="Enter Brand Name"
+                            />
+                            <TextInput
+                                label="Category"
+                                value={product.category}
+                                onChange={(e) => setProduct({ ...product, category: e.target.value })}
+                                placeholder="Enter Category"
+                            />
+                            <TextInput
+                                label="Price"
+                                type="number"
+                                value={product.price}
+                                onChange={(e) => setProduct({ ...product, price: e.target.value })}
+                                placeholder="Enter Price"
+                            />
+                            <Textarea
+                                label="Description"
+                                value={product.description}
+                                onChange={(e) => setProduct({ ...product, description: e.target.value })}
+                                placeholder="Write your description"
+                            />
+                            <TextInput
+                                label="Image URL"
+                                value={product.imageFileName}
+                                onChange={(e) => setProduct({ ...product, imageFileName: e.target.value })}
+                                placeholder="Enter Image URL"
+                            />
+                            {!isLoading && <Button>Update</Button>}
                         </div>
                     </form>
                 </>

@@ -6,9 +6,9 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily :{
+      fontFamily: {
         nunito: ["nunito"]
-      }, 
+      },
       colors: {
         primaryColor: "#111111",
         secondaryColor: "#3F3CF7",
@@ -17,7 +17,6 @@ export default {
     },
   },
   plugins: [
-    ('tailwind-scrollbar'),
   ],
 }
 
