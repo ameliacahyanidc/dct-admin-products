@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-accentColor font-nunito;
+  }
+
+  /* Custom scrollbar styles */
+  *::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffff; /* Primary color */
+    border-radius: 5px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #3F3CF7; /* Secondary color */
+  }
+
+  /* Firefox scrollbar styles */
+  * {
+    scrollbar-width: 30px;
+    scrollbar-color: #3F3CF7 #ffff;
+  }
+}
